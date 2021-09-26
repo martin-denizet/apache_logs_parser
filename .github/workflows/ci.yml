@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Build and publish Python distribution
+    name: Run tests and Code Quality
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master

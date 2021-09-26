@@ -21,7 +21,7 @@ def get_version(rel_path):
 setup(
     name='apache_logs_parser',
     version=get_version("apache_logs_parser/__init__.py"),
-    description='Demo ',
+    description='Example for log parsing tool for Python classes',
     author='Martin DENIZET',
     author_email='martin.denizet@gmail.com',
     url='https://github.com/martin-denizet/',
@@ -39,14 +39,12 @@ setup(
         'Programming Language :: Python :: 3.9',
     ],
     python_requires='>3.4',
-
     install_requires=[],
     setup_requires=[],
-    tests_require=['pytest'],
+    tests_require=[],
     entry_points={
         'console_scripts':
             ['apache_logs_parser=apache_logs_parser.__main__:main']
     },
     test_suite="tests",
-    # package_data={'exampleproject': ['data/schema.json']}
 )
