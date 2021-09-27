@@ -50,6 +50,7 @@ def parse_log_file(file_name):
             line_data = parse_line(line.strip())
             if line_data:
                 data.append(line_data)
+    logger.info("Read {} lines from file {}".format(len(data), file_name))
     return data
 
 
@@ -112,3 +113,4 @@ def write_json(input_files, output_file, generate_stats=False, include_log_entri
         json.dump(
             generate_output_dict(input_files, generate_stats=generate_stats, include_log_entries=include_log_entries),
             f, indent=4)
+        logger.info("Wrote output to file {}".format(output_file))
