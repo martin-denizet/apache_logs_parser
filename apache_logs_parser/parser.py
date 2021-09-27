@@ -57,20 +57,20 @@ def parse_log_file(file_name):
 def parse_line(line):
     match = REGEX.search(line)
     if match:
-        hostname, log_name, user, time, request, status, bytes, referer, user_agent = match.groups()
+        remote_ip, log_name, user, time, request, status, bytes, referrer, user_agent = match.groups()
 
         if bytes == '-':
             bytes = 0
 
         data = dict(
-            hostname=hostname,
+            remote_ip=remote_ip,
             log_name=log_name,
             user=user,
             time=parse_date(time).isoformat(),
             request=request,
             status=int(status),
             bytes=int(bytes),
-            referer=referer,
+            referrer=referrer,
             user_agent=user_agent,
         )
         data.update(extract_method_and_url(request))

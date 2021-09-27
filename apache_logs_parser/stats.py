@@ -109,8 +109,8 @@ class StatPerIp(StatProducer):
         self.per_ip = defaultdict(lambda: defaultdict(lambda: 0))
 
     def process_entry(self, data_entry):
-        self.per_ip[data_entry['hostname']]['bytes'] += data_entry['bytes']
-        self.per_ip[data_entry['hostname']]['hits'] += 1
+        self.per_ip[data_entry['remote_ip']]['bytes'] += data_entry['bytes']
+        self.per_ip[data_entry['remote_ip']]['hits'] += 1
 
     def get_metrics(self):
         return dict(

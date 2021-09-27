@@ -105,5 +105,5 @@ def extract_client_information(user_agent):
     return dict(
         is_mobile=is_mobile,
         is_bot=is_bot,
-        os_string=os_string,
+        system_agent=os_string,
     )

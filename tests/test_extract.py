@@ -32,7 +32,7 @@ class TestExtractors(unittest.TestCase):
 
     def test_iphone_emulator(self):
         self.assertEqual(
-            {'is_bot': True, 'is_mobile': True, 'os_string': 'iPhone OS 6_0'},
+            {'is_bot': True, 'is_mobile': True, 'system_agent': 'iPhone OS 6_0'},
             extract_client_information(
                 "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
             )
@@ -40,7 +40,7 @@ class TestExtractors(unittest.TestCase):
 
     def test_iphone(self):
         self.assertEqual(
-            {'is_bot': False, 'is_mobile': True, 'os_string': 'iPhone OS 7_0_4'},
+            {'is_bot': False, 'is_mobile': True, 'system_agent': 'iPhone OS 7_0_4'},
             extract_client_information(
                 "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a"
             )
