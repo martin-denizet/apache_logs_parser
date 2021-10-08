@@ -86,7 +86,7 @@ def parse_date(date_string):
     """
     Converts Apache log datetime into Python datetime object
     :param date_string: Apache datetime string such as:
-    >>> "17/May/2015:10:05:19 +0000"
+    `"17/May/2015:10:05:19 +0000"`
     :return: datetime instance
     :rtype: datetime
     """

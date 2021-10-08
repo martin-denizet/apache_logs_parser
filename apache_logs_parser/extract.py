@@ -17,9 +17,8 @@ def get_file_extension(url):
     """
     Gets the file extension
     :param url: url/path used by a request. for example:
-    >>> "/images/web/2009/banner.png "
-    :return: The extension of the file hit, if identifiyable. In our example:
-    >>> "png"
+    `"/images/web/2009/banner.png "`
+    :return: The extension of the file hit, if identifiyable. In our example: `"png"`
     Defaults to `None`
     :rtype: str
     """
@@ -36,14 +35,22 @@ def extract_method_and_url(request):
     """
 
     :param request:
-    >>> "GET /presentations/logstash-scale11x/images/kibana-dashboard2.png HTTP/1.1"
+    .. code-block:: python
+
+        "GET /presentations/logstash-scale11x/images/kibana-dashboard2.png HTTP/1.1"
+
     :return: dictionary with the information extracted, in our example:
-    >>> {'extension': 'png',
-    >>>  'method': 'GET',
-    >>>  'path': '/presentations/logstash-scale11x/images/kibana-dashboard2.png',
-    >>>  'protocol': 'HTTP/1.1',
-    >>>  'query': '',
-    >>>  'url': '/presentations/logstash-scale11x/images/kibana-dashboard2.png'}
+    .. code-block:: python
+
+        {
+            'extension': 'png',
+            'method': 'GET',
+            'path': '/presentations/logstash-scale11x/images/kibana-dashboard2.png',
+            'protocol': 'HTTP/1.1',
+            'query': '',
+            'url': '/presentations/logstash-scale11x/images/kibana-dashboard2.png'
+        }
+
     :rtype: dict[str,str]
     """
     request_match = METHOD_REGEX.search(request)
