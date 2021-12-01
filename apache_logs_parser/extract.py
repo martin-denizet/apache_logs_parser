@@ -10,6 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+# Regex to extract the extension of a file/URL
 EXTENSION_RE = re.compile(r'\.([A-z0-9]{2,4})$', re.IGNORECASE)
 
 
@@ -28,12 +29,13 @@ def get_file_extension(url):
     return None
 
 
+# Regex to extract the method from the request field
 METHOD_REGEX = re.compile(r"^([A-Z]+) ([^ ]+) (.*)$")
 
 
 def extract_method_and_url(request):
     """
-
+    Open a file and create a list of dictionaries with each line as a dict
     :param request:
     .. code-block:: python
 
@@ -74,11 +76,13 @@ def extract_method_and_url(request):
     )
 
 
+# Regex to identify bots in UserAgent
 BOT_RE = re.compile('.*(Googlebot|bingbot|Twitterbot|YandexBot|bot)', re.IGNORECASE)
+# Regex to identify Desktop users
 DESKTOP_UA_RE = re.compile(
     r'.*(Windows NT \d+\.?\d*|Mac OS [A-z0-9._ ]+|Linux \d+(\.\d+)*)',
     re.IGNORECASE)
-
+# Regex to identify Mobile users
 MOBILE_UA_RE = re.compile(
     r'.*(iPhone OS \d+(_\d+)*|Android \d+(\.\d+)*|iPad)',
     re.IGNORECASE)
@@ -86,6 +90,7 @@ MOBILE_UA_RE = re.compile(
 
 def extract_client_information(user_agent):
     """
+    Extract data from the user_agent field
     Extracts more information from the user_agent provided by the browser
     :param user_agent: User agent string such as:
     >>> "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a"
